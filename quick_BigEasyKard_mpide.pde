@@ -9,7 +9,7 @@
 Quick q;
 Cron cron(micros);
  
-#line 20 "X_Unit.pde"
+#line 20 "quick_BigEasyKard_mpide.pde"
  
 #define XAxisKard 2
 StepAndDirection xaxis(2, XAxisKard, Variant(5, -6), "/?", "C" ); // motor id 0, card position 3
@@ -77,7 +77,11 @@ void setup() {
   q.kardConfig(0, 0x1f); // configure card 0 as input
   //q.kardConfig(1, 0x00); // configure card 1 as output
  
-  pinMode(XAxisHome,INPUT);
+  // Set XAxisHome to INPUT to use as home seneor
+  //pinMode(XAxisHome,INPUT);
+  // Set XAxisHome to OUTPUT driven LOW if home sensor is not connected
+  pinMode(XAxisHome,OUTPUT);
+  digitalWrite(XAxisHome,LOW);
  
   xaxis.setConversion(1); // steps per unit, mm
   xaxis.setLimits(0, 0); // limit range in units, 0 - 1000mm
