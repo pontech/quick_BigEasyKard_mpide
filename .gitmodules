@@ -1,0 +1,3 @@
+[submodule "pic32lib"]
+	path = pic32lib
+	url = git@github.com:pontech/pic32lib.git
